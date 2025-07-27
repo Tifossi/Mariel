@@ -1,0 +1,29 @@
+
+body {
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to bottom right, #fef6e4, #e4c1f9);
+    overflow: hidden;
+    font-family: 'Georgia', serif;
+}
+h1 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 3em;
+    color: #5d3a00;
+    text-align: center;
+}
+.floating-text {
+    position: absolute;
+    color: #6a4c93;
+    font-size: 1.2em;
+    opacity: 0.8;
+    pointer-events: none;
+    animation: floatUp 4s ease-out forwards;
+}
+@keyframes floatUp {
+    0% { opacity: 1; transform: translateY(0); }
+    100% { opacity: 0; transform: translateY(-150px); }
+}
