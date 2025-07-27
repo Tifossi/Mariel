@@ -1,117 +1,33 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Discúlpame, Mariel</title>
+  <title>Discúlpame, Mariel.</title>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@800&display=swap');
-
-    html, body {
+    body {
       margin: 0;
-      padding: 0;
-      height: 100%;
-      background-color: #fef3f0;
-      font-family: 'Playfair Display', serif;
+      height: 100vh;
+      background: radial-gradient(circle at center, #eecfcf, #a38989);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: 'Georgia', serif;
       overflow: hidden;
     }
 
-    .center-wrapper {
-      height: 100%;
-      width: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      position: relative;
-    }
-
-    .center {
+    .titulo {
+      font-size: 3em;
+      color: #411f1f;
       text-align: center;
-      font-size: 80px;
-      font-weight: 800;
-      color: #b94b6f;
-      letter-spacing: 1px;
-      z-index: 10;
-    }
-
-    .floating {
-      position: absolute;
-      font-size: 24px;
-      font-weight: bold;
-      color: #b94b6f;
-      opacity: 0.6;
-      animation: floatUp 3.5s ease-out forwards;
-      z-index: 20;
-    }
-
-    .background-text {
-      position: absolute;
-      color: #e4a1b0;
-      font-size: 60px;
-      font-weight: bold;
-      opacity: 0.08;
-      white-space: nowrap;
-      filter: blur(2px);
-      animation: scrollDown 12s linear infinite;
-      font-family: 'Playfair Display', serif;
-    }
-
-    @keyframes scrollDown {
-      0% { transform: translateY(-100%); }
-      100% { transform: translateY(100vh); }
-    }
-
-    @keyframes floatUp {
-      0% {
-        opacity: 1;
-        transform: translateY(0) scale(1);
-      }
-      100% {
-        opacity: 0;
-        transform: translateY(-150px) scale(1.3);
-      }
     }
   </style>
 </head>
 <body>
+  <div class="titulo">Discúlpame, Mariel.</div>
 
-<div class="center-wrapper">
-  <div class="center">Discúlpame, Mariel.</div>
-</div>
-
-<!-- Letras de fondo -->
-<script>
-  for (let i = 0; i < 30; i++) {
-    const bgText = document.createElement('div');
-    bgText.className = 'background-text';
-    bgText.textContent = 'LOVE YOU';
-    bgText.style.left = Math.random() * window.innerWidth + 'px';
-    bgText.style.top = Math.random() * window.innerHeight + 'px';
-    document.body.appendChild(bgText);
-  }
-</script>
-
-<audio id="bg-music" autoplay loop>
-  <source src="https://dl.sndup.net/9r67/Love%20-%20Wave%20to%20Heart.mp3" type="audio/mpeg">
-</audio>
-
-<script>
-  const frases = ["LOVE YOU", "Perdón", "Lo siento", "Te extraño", "Mariel 💘"];
-  document.body.addEventListener('click', function(e) {
-    const texto = document.createElement('div');
-    texto.className = 'floating';
-    texto.textContent = frases[Math.floor(Math.random() * frases.length)];
-    texto.style.left = (Math.random() * window.innerWidth) + 'px';
-    texto.style.top = (Math.random() * window.innerHeight) + 'px';
-    document.body.appendChild(texto);
-    setTimeout(() => texto.remove(), 3500);
-  });
-
-  // Activador de audio en iOS
-  document.addEventListener('touchstart', function() {
-    document.getElementById('bg-music').play();
-  }, { once: true });
-</script>
-
+  <audio autoplay loop>
+    <source src="cancion.mp3#t=226" type="audio/mpeg">
+    Tu navegador no soporta audio HTML5.
+  </audio>
 </body>
 </html>
