@@ -1,0 +1,75 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Discúlpame, Mariel</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: #fff0f5;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      overflow: hidden;
+    }
+    .center {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      font-size: 36px;
+      font-weight: bold;
+      color: hotpink;
+    }
+    .float-text {
+      position: absolute;
+      color: hotpink;
+      font-size: 20px;
+      font-weight: bold;
+      animation: floatUp 3s linear forwards;
+      pointer-events: none;
+    }
+    @keyframes floatUp {
+      0% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      100% {
+        opacity: 0;
+        transform: translateY(-200px);
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="center">Discúlpame, Mariel. 💖</div>
+<audio id="bg-music" autoplay loop>
+  <source src="https://dl.sndup.net/9r67/Love%20-%20Wave%20to%20Heart.mp3" type="audio/mpeg">
+  Tu navegador no soporta audio HTML5.
+</audio>
+
+<script>
+  const frases = ["LOVE YOU 💘", "Lo siento 💔", "Perdón 🙏", "Mariel ❤️", "Te extraño 😢", "Discúlpame 💖"];
+
+  document.body.addEventListener('click', function(e) {
+    const text = document.createElement('div');
+    text.className = 'float-text';
+    text.textContent = frases[Math.floor(Math.random() * frases.length)];
+    text.style.left = e.pageX + 'px';
+    text.style.top = e.pageY + 'px';
+    text.style.fontSize = (Math.random() * 20 + 20) + 'px';
+    document.body.appendChild(text);
+    setTimeout(() => text.remove(), 3000);
+  });
+
+  // Autoplay music on iOS hack
+  document.addEventListener('touchstart', function() {
+    const music = document.getElementById('bg-music');
+    music.play();
+  }, { once: true });
+</script>
+
+</body>
+</html>
